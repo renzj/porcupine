@@ -1,0 +1,18 @@
+{
+
+    "tenant":{
+        "tenantid":3,
+        "name":"t1",
+        "disruptive":1,
+        "tenant_quota":100,
+        "sleep_for_excess":5,
+        "threads_over_quota":100
+    },
+
+    "request_generator":{"name":"constant","conf_tag":"generator","kwargs":{"total_generate_times":1000,"number_of_request_per_time":100,"check_time":5}},
+
+    "request_of_iat":{"name":"pareto","conf_tag":"iat_distr","kwargs":{"seed":1,"alpha":1,"internal_time_base":10} },
+
+    "file_system":{"name":"ceph","conf_tag":"drivers"},
+    "interval_get_number_of_active_thread":1
+}
