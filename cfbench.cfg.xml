@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 	<drivers name = 'ceph'>
-		<path>E:\pycharm workspace\CFBench\drivers\</path>
+		<path>/root/cfbench/drivers/</path>
 		<direct>ceph_drivers</direct>
 		<class_name>CephDrivers</class_name>
 	</drivers>
 
 
    <generator name = 'constant'>
-        <path>E:\pycharm workspace\CFBench\request_generator\</path>
+        <path>/root/cfbench/request_generator</path>
         <direct>request_generator_impl</direct>
         <class_name>ConstantRequestGenerator</class_name>
    </generator>
-
-   <generator name = 'pareto'>
-        <path>E:\pycharm workspace\CFBench\request_generator\</path>
+    <generator name = 'random'>
+        <path>/root/cfbench/request_generator</path>
         <direct>request_generator_impl</direct>
-        <class_name>ParatoRequestGenerator</class_name>
+        <class_name>RandomRequestGenerator</class_name>
+   </generator>
+    <generator name = 'possion'>
+        <path>/root/cfbench/request_generator</path>
+        <direct>request_generator_impl</direct>
+        <class_name>PossionRequestGenerator</class_name>
    </generator>
 
    <iat_distr name='pareto'>
-        <path>E:\pycharm workspace\CFBench\iat_distr\</path>
+        <path>/root/cfbench/iat_distr/</path>
         <direct>iat_distribution_impl</direct>
         <class_name>ParetoIATGenerator</class_name>
    </iat_distr>
-    <iat_distr name='constant'>
-        <path>E:\pycharm workspace\CFBench\iat_distr\</path>
-        <direct>iat_distribution_impl</direct>
-        <class_name>ConstantIATGenerator</class_name>
-   </iat_distr>
+
 </root>
