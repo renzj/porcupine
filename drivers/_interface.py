@@ -52,6 +52,7 @@ class FsAdaptor:
                 flag=True
             except Exception,ex:
                 tmp=ex
+                print tmp
                 flag=False
         elif len(args)==3:
             path,size,rtype=args
@@ -62,6 +63,7 @@ class FsAdaptor:
                 flag=True
             except Exception,ex:
                 tmp=ex
+                print tmp
                 flag=False
         else:
             tmp='parameter error'
@@ -111,17 +113,11 @@ class FsAdaptor:
 
         return flag,tmp
 
-
-
     def rename(self,*args,**kwargs):
         if len(args)==2:
             old,new = args
-            try:
-                tmp=os.rename(old, new)
-                flag=True
-            except Exception,ex:
-                tmp=ex
-                flag = False
+            tmp=os.rename(old, new)
+            flag=True
         else:
             tmp='parameter error'
             flag=False
