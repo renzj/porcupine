@@ -1,4 +1,4 @@
-
+#encoding=utf8
 def configuration(mmname,mmtag):
     import sys
     from lxml import etree
@@ -10,13 +10,14 @@ def configuration(mmname,mmtag):
 #    fstype = 'ceph'
     fs=xml()
     try:
-        xml=etree.parse('cfbench.cfg.xml')
+        xml=etree.parse("cfbench.cfg.xml")
         root=xml.getroot()
         for mod in root:
             if mod.attrib['name']== mmname and mod.tag == mmtag:
                 for submod in mod:
                     setattr(fs,submod.tag,submod.text)
                 break
+
     except Exception,ex:
         print 'Parse XML Error',ex
     sys.path.append(fs.path)
@@ -25,5 +26,6 @@ def configuration(mmname,mmtag):
  #   ceph = getattr(module,fs.class_name)
     return module,fs.class_name
 
-
+if __name__ == "__main__":
+    print configuration("pareto","iat_distr")
 
