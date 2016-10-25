@@ -1,17 +1,18 @@
 {
 
     "tenant":{
-        "tenantid":3,
+        "tenantid":1,
         "name":"t1",
         "disruptive":1,
+        "sleep_for_excess":0,
         "tenant_quota":100,
-        "sleep_for_excess":5,
-        "threads_over_quota":100
+	"threads_over_quota":100,
+	"log_dir":"/your_log_directory/ceph-log/" 
     },
 
-    "request_generator":{"name":"constant","conf_tag":"generator","kwargs":{"total_generate_times":1000,"number_of_request_per_time":100,"check_time":5}},
+    "request_generator":{"name":"random","conf_tag":"generator","kwargs":{"request_rate":10000,"low_of_rate":2000,"up_of_rate":10000,"rate_base":100,"random_seed":10.0,"total_generate_time":5,"threads_of_pool":16,"request_per_make":1,"check_time":5}},
 
-    "request_of_iat":{"name":"pareto","conf_tag":"iat_distr","kwargs":{"seed":1,"alpha":1,"internal_time_base":10} },
+    "request_of_iat":{"name":"pareto","conf_tag":"iat_distr","kwargs":{"seed":1,"alpha":4,"internal_time_base":10} },
 
     "file_system":{"name":"ceph","conf_tag":"drivers"},
     "interval_get_number_of_active_thread":1
